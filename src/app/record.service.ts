@@ -10,14 +10,6 @@ export class RecordService {
   url = 'http://localhost:8080/authenticate';
 
   constructor(private myHtpClient: HttpClient) {}
-
-  // postData()
-  // {
-  //   return this.myHtpClient.get('http://localhost:2303/');
-  //   //for proxy configuration
-  //   //return this.myHtpClient.get('/api');
-  // }
-
   postData() {
     return this.myHtpClient.post<postdata>(this.url, {
       username: 'siddhuname',

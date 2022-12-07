@@ -5,7 +5,7 @@ import { RecordService } from './record.service';
 @Component({
   selector: 'app-root',
   //templateUrl: './app.component.html',
-  template: `<re-captcha (resolved)="resolved($event)" siteKey="6Lfv1zkdAAAAAIDR61hXqmMOYmimdC0P-97FcLnF"></re-captcha>`,
+  template: `<re-captcha (resolved)="resolved($event)" siteKey="6LcCoTkjAAAAAKf6wRsMObLIqnKMmIaKcwDsVEcr"></re-captcha>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
     this.myService.postData().subscribe(
       (data: any) => {
-            //data = JSON.parse(data['_body']);
+            data = JSON.parse(data['_body']);
             console.log("data",data);
             this.myArrayData = data;
         },
@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
         () => console.log('getData Complete') // complete
       );
   }
-
   title = 'angular-google-captcha';
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response: ${captchaResponse}`);
@@ -36,6 +35,4 @@ export class AppComponent implements OnInit {
       //by this was we can hold the user to update the score using external tool like postman
     }
   }
-
-
 }
